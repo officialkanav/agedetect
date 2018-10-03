@@ -18,3 +18,5 @@ gettingdata.py - converting data in mat format to csv format and other basic stu
 
 
 path - path of file in croppedfaces zip
+
+cropped faces.zip - cropped images of faces from original images
