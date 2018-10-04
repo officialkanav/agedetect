@@ -2,7 +2,7 @@ import hdf5storage
 import datetime
 from datetime import date,timedelta
 import numpy as np
-
+import pandas as pd
 mat = hdf5storage.loadmat('wiki.mat')
 wiki = mat['wiki']
 gender = wiki['gender']
