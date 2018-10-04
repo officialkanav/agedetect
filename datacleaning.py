@@ -1,6 +1,6 @@
 import pandas as pd
 import gettingdata
-
+import numpy as np
 path = pd.read_csv('path.csv')
 dob = pd.read_csv('dob.csv')
 gender = pd.read_csv('gender.csv')
