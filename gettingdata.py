@@ -1,7 +1,7 @@
 import hdf5storage
 import datetime
 from datetime import date
-
+import numpy as np
 mat = hdf5storage.loadmat('wiki.mat')
 wiki = mat['wiki']
 gender = wiki['gender']
@@ -33,7 +33,6 @@ create_csv(dob,name = 'dob.csv')
 create_csv(gender,name = 'gender.csv')
 create_csv(path,name = 'path.csv')
 create_csv(photo_taken,name = 'photo_taken.csv')
-
 def create_csv(file,name):
     a = pd.DataFrame(file)
     a.to_csv(name)

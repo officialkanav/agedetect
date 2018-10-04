@@ -1,6 +1,6 @@
 import pandas as pd
 import gettingdata
-import numpy as np
+
 path = pd.read_csv('path.csv')
 dob = pd.read_csv('dob.csv')
 gender = pd.read_csv('gender.csv')
@@ -41,7 +41,7 @@ for i in range(len(date)):
 #deleting age above 125 and below 2
 a = list()
 for i in range(len(date)):
-    if(age[i,0]<2 or age[i,0]>123):
+    if(age[i,0]<0 or age[i,0]>125):
         a.append(i)
 for i in range(len(a)):
     date = np.delete(date,a[i],0)
