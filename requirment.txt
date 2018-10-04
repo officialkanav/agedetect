@@ -5,3 +5,4 @@ keras
 tensorflow
 datetime
 os
+tqdm
