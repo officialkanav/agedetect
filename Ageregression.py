@@ -1,15 +1,16 @@
 import datacleaning
 import cv2
 import os
-image = np.ones((len(datacleaning.age),50,50))
-
+import numpy as np
+from tqdm import tqdm
 def read_image(image_directory):
     image_directory = image_directory
-    for i in range(len(path)):
+    image = np.ones((len(datacleaning.age),50,50))
+    for i in tqdm(range(len(datacleaning.path1))):
         path2 = os.path.join(image_directory,datacleaning.path1[i,0])
         image[i,:,:] = cv2.imread(path2,0)
     return image
-
+image = read_image('/content/croppedfaces')
 from keras.preprocessing.image import ImageDataGenerator
 datagen = ImageDataGenerator( rotation_range=90, 
                  width_shift_range=0.1, height_shift_range=0.1, 
@@ -38,5 +39,5 @@ modelnn.add(Dense(512, activation='relu'))
 modelnn.add(BatchNormalization())
 modelnn.add(Dropout(0.5))
 modelnn.add(Dense(1, activation='linear'))
-modelnn.compile(loss='mean_squared_error', optimizer='adam', metrics=['mean_squared_error'])
-modelnn.fit_generator(datagen.flow(image, age, batch_size=32),steps_per_epoch=len(image) / 32, epochs=20)
+modelnn.compile(loss='mean_squared_error', optimizer='adam', metrics=['acc'])
+modelnn.fit_generator(datagen.flow(image, datacleaning.age, batch_size=32),steps_per_epoch=len(image) / 32, epochs=20)
